@@ -122,6 +122,9 @@ class PassKeeperGUI:
         for item in self.treeview.get_children():
             self.treeview.delete(item)
 
+        # 更新表格数据的时候 重置搜索框
+        self.search_entry.delete(0, tk.END)
+
         # 获取数据并显示
         password_data = self.passkeeper.load_from_db()
         for entry in password_data:
